@@ -19,7 +19,6 @@ RUN \
 RUN yarn add sharp
 
 
-# Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -27,7 +26,6 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# RUN yarn openapi
 RUN yarn build
 
 FROM base AS runner

@@ -29,7 +29,7 @@ jobs:
           skip-ls-check: true
 
       - name: Build docker image
-        run: yarn ci:docker:build
+        run: yarn docker:build
         env:
           BUILD_ID: ${{ github.run_number }}-${{ github.run_id }}
           NODE_ENV: production
